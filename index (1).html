@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#fff4f8" />
+  <meta name="description" content="교육 기획과 디지털 도구를 연결하는 개인 업무 포트폴리오" />
+  <title>Portfolio | Education & Digital Planning</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Jua&family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    :root { color-scheme: dark; --bg:#090f1c; --panel:#111b2d; --panel2:#15223a; --line:rgba(187,208,238,.14); --text:#f4f7fd; --muted:#a5b4cc; --accent:#8ce3d5; --accent2:#8cafff; --radius:22px; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; font-family: 'Pretendard Variable',Pretendard,'Noto Sans KR','Apple SD Gothic Neo',system-ui,-apple-system,sans-serif; color:var(--text); background:radial-gradient(ellipse 60% 34% at 82% 0%,rgba(80,104,204,.19),transparent 75%),radial-gradient(ellipse 40% 30% at 0% 48%,rgba(31,166,160,.09),transparent 80%),var(--bg); line-height:1.7; }
+    a { color:inherit; text-decoration:none; } button {font:inherit;} ::selection{background:#8ce3d5;color:#09121e;}
+    .wrap { width:min(1140px,calc(100% - 48px)); margin:0 auto; }
+    .header { position:sticky; top:0; z-index:20; background:rgba(9,15,28,.82); backdrop-filter:blur(18px); border-bottom:1px solid var(--line); }
+    .nav {height:76px; display:flex; align-items:center; justify-content:space-between; gap:20px;}
+    .logo {font-size:15px; font-weight:850; letter-spacing:.15em; white-space:nowrap;} .logo span{color:var(--accent)}
+    .links {display:flex; gap:28px; align-items:center; font-size:13px; color:#c5d0e1;} .links a:hover,.links a:focus-visible{color:var(--accent)}
+    .nav-cta {border:1px solid rgba(140,227,213,.35); padding:9px 15px; border-radius:999px; color:var(--accent); font-size:12px; font-weight:700;}
+    .hero {padding:106px 0 86px; display:grid; grid-template-columns:minmax(0,1.35fr) minmax(300px,.65fr); align-items:center; gap:55px;}
+    .eyebrow {display:inline-flex; align-items:center; gap:9px; color:var(--accent); font-size:12px; font-weight:800; letter-spacing:.16em; text-transform:uppercase;}
+    .dot {height:7px;width:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 16px rgba(140,227,213,.8);}
+    h1 {font-size:clamp(40px,5vw,67px);line-height:1.22;letter-spacing:-.055em;margin:23px 0 23px;font-weight:800;word-break:keep-all;}
+    .gradient {background:linear-gradient(100deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent;}
+    .lead {font-size:17px;color:var(--muted);max-width:650px;word-break:keep-all;line-height:1.95;margin:0;}
+    .hero-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:35px;}
+    .btn{display:inline-flex;justify-content:center;align-items:center;gap:10px;padding:14px 20px;border-radius:12px;font-size:13px;font-weight:800;transition:transform .18s,background .18s,border-color .18s;cursor:pointer;}
+    .btn:hover{transform:translateY(-3px)}.btn:active,.project:active{transform:scale(.98)}.btn-primary{background:var(--accent);color:#061620}.btn-primary:hover{background:#b4f3e9}.btn-outline{border:1px solid var(--line);color:#d8e2f2}.btn-outline:hover{border-color:var(--accent)}
+    .profile {position:relative;border-radius:26px;padding:28px;background:linear-gradient(155deg,rgba(37,61,95,.8),rgba(15,27,47,.88));border:1px solid rgba(179,204,234,.16);box-shadow:0 25px 80px rgba(0,0,0,.23);}
+    .profile:before {content:"";position:absolute;inset:-1px;border-radius:26px;background:linear-gradient(135deg,rgba(140,227,213,.33),transparent 46%);z-index:-1;}
+    .avatar {width:92px;height:92px;display:grid;place-items:center;border-radius:26px;background:linear-gradient(135deg,#8ce3d5,#6f94e9);color:#0b2435;font-size:33px;font-weight:900;letter-spacing:-.06em;margin-bottom:24px;}
+    .profile .cap {color:#90a4c5;letter-spacing:.12em;font-size:11px;text-transform:uppercase;font-weight:800;}
+    .profile h2 {font-size:25px;line-height:1.45;letter-spacing:-.03em;margin:9px 0 7px;} .profile p{color:var(--muted);font-size:14px;margin:0;}
+    .profile-bottom{margin-top:29px;border-top:1px solid var(--line);padding-top:20px;display:flex;justify-content:space-between;gap:10px;align-items:center;color:#ccdae9;font-size:12px;}
+    .status{display:inline-flex;align-items:center;gap:7px;color:var(--accent);font-weight:700;}.status:before{content:"";height:6px;width:6px;border-radius:50%;background:currentColor;}
+    section{scroll-margin-top:100px;} .section{padding:45px 0 72px;}
+    .section-heading{display:flex;justify-content:space-between;align-items:end;gap:25px;margin-bottom:27px;}
+    .kicker{color:var(--accent);font-weight:800;letter-spacing:.15em;font-size:11px;text-transform:uppercase;}
+    .section h2{font-size:clamp(27px,3.5vw,37px);letter-spacing:-.045em;line-height:1.35;margin:9px 0 0;}
+    .section-desc{font-size:13px;color:var(--muted);max-width:360px;margin:0;}
+    .about-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:16px;}.surface{background:rgba(18,29,48,.77);border:1px solid var(--line);border-radius:var(--radius);padding:31px;}
+    .surface h3{margin:0 0 16px;font-size:18px;letter-spacing:-.03em}.surface p{color:var(--muted);font-size:14px;line-height:2;margin:0;word-break:keep-all;}
+    .info{display:grid;gap:16px;margin-top:5px}.info-item{display:grid;grid-template-columns:76px 1fr;gap:12px;border-bottom:1px solid var(--line);padding-bottom:14px;font-size:13px}.info-item:last-child{border:0;padding:0}.info-item strong{color:#7e93b1;font-size:12px}.info-item span{color:#e4ebf6}
+    .work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}.work-card{min-height:218px;}.work-card .icon{width:42px;height:42px;border-radius:13px;background:rgba(140,227,213,.09);border:1px solid rgba(140,227,213,.16);display:grid;place-items:center;font-size:21px;margin-bottom:22px}.work-card h3{font-size:17px;margin-bottom:9px}.work-card p{font-size:13px;line-height:1.9}
+    .career{display:grid;gap:14px}.career-item{display:grid;grid-template-columns:150px 1fr;gap:25px;padding:22px 26px;border:1px solid var(--line);border-radius:16px;background:rgba(18,29,48,.63)}.career-item .time{font-size:12px;color:var(--accent);font-weight:800;}.career-item h3{margin:0 0 8px;font-size:16px}.career-item p{color:var(--muted);font-size:13px;margin:0}
+    .project-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}.project{position:relative;display:flex;flex-direction:column;min-height:283px;padding:25px;border-radius:22px;background:linear-gradient(160deg,#192c45,#101b2d 78%);border:1px solid rgba(181,208,241,.16);overflow:hidden;transition:transform .2s,border-color .2s,box-shadow .2s;}.project:hover{transform:translateY(-6px);border-color:rgba(140,227,213,.7);box-shadow:0 20px 35px rgba(0,0,0,.17)}
+    .project:nth-child(2){background:linear-gradient(160deg,#1b3047,#101c2a 78%)}.project:nth-child(3){background:linear-gradient(160deg,#272b4b,#13192b 78%)}
+    .project-number{font-size:72px;line-height:1;font-weight:850;color:rgba(209,231,252,.11);letter-spacing:-.07em}.project-tag{display:inline-block;align-self:flex-start;border:1px solid rgba(191,213,238,.23);font-size:10px;letter-spacing:.08em;color:#b8cbe4;border-radius:999px;padding:5px 10px;margin:20px 0 12px}.project h3{font-size:19px;margin:0 0 6px;letter-spacing:-.03em}.project p{font-size:12px;color:#9fafc6;margin:0}.project-arrow{position:absolute;right:24px;top:25px;font-size:21px;color:var(--accent)}
+    .note{display:flex;align-items:flex-start;gap:9px;margin-top:17px;font-size:12px;color:#8ea0bd}.note svg{flex:none;margin-top:2px}
+    .footer{border-top:1px solid var(--line);margin-top:42px;padding:27px 0 40px;color:#8192ae;font-size:12px}.footer-inner{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}.top-link:hover{color:var(--accent)}
+    :focus-visible{outline:2px solid var(--accent);outline-offset:4px;}
+    @media(max-width:850px){.hero{grid-template-columns:1fr;padding-top:72px;gap:36px}.profile{max-width:470px}.about-grid{grid-template-columns:1fr}.work-grid,.project-grid{grid-template-columns:1fr 1fr}.section-desc{display:none}.links{gap:15px}}
+    @media(max-width:600px){.wrap{width:min(100% - 32px,1140px)}.nav{height:64px}.links a:not(.nav-cta){display:none}.nav-cta{padding:8px 11px;font-size:11px}.hero{padding:63px 0 47px}.hero h1{font-size:42px}.lead{font-size:14px}.section{padding:32px 0 48px}.surface{padding:23px}.work-grid,.project-grid{grid-template-columns:1fr}.work-card{min-height:auto}.project{min-height:245px}.career-item{grid-template-columns:1fr;gap:8px}.section-heading{margin-bottom:22px}.profile{padding:24px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+
+    /* Soft pink theme: playful, approachable, and readable */
+    :root {
+      color-scheme:light;
+      --bg:#fff7fa;
+      --panel:#fff;
+      --panel2:#fff0f6;
+      --line:rgba(184,72,113,.16);
+      --text:#51263d;
+      --muted:#806477;
+      --accent:#df4e91;
+      --accent2:#f38db8;
+      --radius:24px;
+    }
+    body {
+      font-family:'Nunito','Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif;
+      background:radial-gradient(ellipse 65% 37% at 88% 0%,rgba(255,170,209,.40),transparent 77%),radial-gradient(ellipse 54% 40% at 0% 52%,rgba(255,215,230,.42),transparent 80%),var(--bg);
+      color:var(--text);
+    }
+    h1,h2,h3,.logo,.btn,.project-number,.eyebrow,.kicker {font-family:'Jua','Nunito','Apple SD Gothic Neo','Malgun Gothic',sans-serif;font-weight:400;}
+    h1{letter-spacing:-.028em;line-height:1.3;}
+    h2,h3{letter-spacing:-.015em!important;}
+    .logo{font-size:19px;letter-spacing:.035em;}
+    .header{background:rgba(255,247,250,.88);border-bottom:1px solid var(--line);}
+    .links{color:#765366;font-size:14px;font-weight:800;}
+    .links a:hover,.links a:focus-visible{color:var(--accent);}
+    .nav-cta{background:#ffe2ee;border-color:#f4b3ce;color:#a82b68;font-size:13px;}
+    .eyebrow,.kicker{letter-spacing:.06em;font-size:14px;}
+    .dot{box-shadow:0 0 15px rgba(223,78,145,.32);}
+    .gradient{background:linear-gradient(100deg,#d53a80,#f17cae);-webkit-background-clip:text;background-clip:text;}
+    .lead{color:var(--muted);}
+    .btn{font-size:16px;border-radius:999px;padding:13px 23px;box-shadow:0 6px 18px rgba(184,72,113,.06);}
+    .btn-primary{background:#df4e91;color:white;box-shadow:0 10px 24px rgba(223,78,145,.22);}
+    .btn-primary:hover{background:#c93b7b;}
+    .btn-outline{background:rgba(255,255,255,.9);border-color:#f1b8d0;color:#a3376d;}
+    .btn-outline:hover{background:#fff0f6;border-color:#df4e91;}
+    .profile{background:linear-gradient(155deg,#fff,#ffedf4);border-color:#f6c5d9;box-shadow:0 22px 60px rgba(173,72,111,.12);}
+    .profile:before{background:linear-gradient(135deg,rgba(255,153,194,.40),transparent 48%);}
+    .avatar{background:linear-gradient(135deg,#ffc0d8,#f282b0);color:#9f2d63;border-radius:29px;box-shadow:0 10px 25px rgba(223,78,145,.16);}
+    .profile .cap{color:#cb5890;font-size:13px;}
+    .profile p,.surface p,.career-item p{color:var(--muted);}
+    .profile-bottom{color:#8a536f;}
+    .surface{background:rgba(255,255,255,.85);border-color:#f4d6e1;box-shadow:0 8px 28px rgba(199,113,146,.055);}
+    .info-item strong{color:#a16b85;}.info-item span{color:#60324a;}
+    .work-card .icon{background:#ffe5ef;border-color:#f9c5da;border-radius:16px;}
+    .career-item{background:rgba(255,255,255,.83);border-color:#f4d6e1;}
+    .project{background:linear-gradient(160deg,#ffe4ee,#fff6fa 88%);border-color:#f6c4d8;box-shadow:0 9px 25px rgba(185,86,128,.07);}
+    .project:nth-child(2){background:linear-gradient(160deg,#ffe8f3,#fff8fb 88%);}
+    .project:nth-child(3){background:linear-gradient(160deg,#fbdcf0,#fff5fa 88%);}
+    .project:hover{border-color:#df4e91;box-shadow:0 20px 40px rgba(206,79,129,.18);}
+    .project-number{color:rgba(207,70,127,.22);font-size:77px;}
+    .project-tag{color:#b5457d;border-color:#edb2cc;background:rgba(255,255,255,.60);font-weight:800;letter-spacing:.045em;}
+    .project p{color:#8b6178;}.project-arrow{color:#d33f83;}
+    .note{color:#906779;}.footer{color:#946e82;}
+    ::selection{background:#f8b2ce;color:#51263d;}
+    @media(max-width:600px){.logo{font-size:17px}.hero h1{font-size:40px}.btn{font-size:15px}}
+  </style>
+</head>
+<body id="top">
+  <header class="header">
+    <div class="wrap nav">
+      <a class="logo" href="#top" aria-label="홈으로">MY<span>.</span>PORTFOLIO</a>
+      <nav class="links" aria-label="주요 메뉴">
+        <a href="#about">소개</a><a href="#work">담당 업무</a><a href="#career">경력</a><a class="nav-cta" href="#projects">결과물 보기 ↗</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="wrap">
+      <section class="hero" aria-labelledby="hero-title">
+        <div>
+          <div class="eyebrow"><span class="dot"></span> PERSONAL PORTFOLIO · 2026</div>
+          <h1 id="hero-title">아이디어를 기획하고,<br><span class="gradient">실행으로 연결합니다.</span></h1>
+          <p class="lead">교육 기획과 디지털 도구의 가능성을 탐색하며, 명확한 문서와 실용적인 결과물로 업무의 가치를 만들어갑니다.</p>
+          <div class="hero-actions"><a class="btn btn-primary" href="#projects">포트폴리오 둘러보기 <span aria-hidden="true">↗</span></a><a class="btn btn-outline" href="#about">자기소개 보기 ↓</a></div>
+        </div>
+        <aside class="profile" aria-label="프로필 요약">
+          <div class="avatar" aria-hidden="true">ME</div>
+          <div class="cap">ABOUT ME</div>
+          <h2>이름을 입력해주세요</h2>
+          <p>교육 기획 · 디지털 업무 혁신</p>
+          <div class="profile-bottom"><span>소속 · 첨단교육팀</span><span class="status">Portfolio</span></div>
+        </aside>
+      </section>
+      <section class="section" id="about" aria-labelledby="about-heading">
+        <div class="section-heading"><div><div class="kicker">01 / ABOUT</div><h2 id="about-heading">저를 소개합니다</h2></div><p class="section-desc">경험을 정리하고, 필요한 문제를 정의하고, 더 나은 업무 방식을 고민합니다.</p></div>
+        <div class="about-grid">
+          <article class="surface"><h3>기획과 실행을 연결하는 사람</h3><p>저는 교육 분야의 업무를 중심으로 기획 문서를 체계화하고, 디지털 도구를 활용한 새로운 업무 방식을 탐색합니다. 복잡한 내용을 명확하게 정리하고, 아이디어를 실제로 활용 가능한 형태로 구현하는 과정에 관심이 있습니다.</p></article>
+          <article class="surface"><h3>Profile</h3><div class="info"><div class="info-item"><strong>이름</strong><span>이름 입력 필요</span></div><div class="info-item"><strong>소속</strong><span>첨단교육팀</span></div><div class="info-item"><strong>분야</strong><span>교육 기획 · 문서화 · 디지털 활용</span></div><div class="info-item"><strong>이메일</strong><span>이메일 입력 필요</span></div></div></article>
+        </div>
+      </section>
+      <section class="section" id="work" aria-labelledby="work-heading">
+        <div class="section-heading"><div><div class="kicker">02 / WHAT I DO</div><h2 id="work-heading">주요 업무 분야</h2></div><p class="section-desc">아래 업무 분야는 포트폴리오용 예시입니다. 실제 담당 업무에 맞게 수정해 주세요.</p></div>
+        <div class="work-grid">
+          <article class="surface work-card"><div class="icon" aria-hidden="true">✦</div><h3>교육사업 기획</h3><p>추진 배경, 목표, 실행 과제 등 사업의 핵심 내용을 논리적으로 구조화합니다.</p></article>
+          <article class="surface work-card"><div class="icon" aria-hidden="true">▤</div><h3>기획문서 및 보고자료</h3><p>의사결정에 필요한 정보를 선별하고, 전달력 높은 문서와 발표자료로 정리합니다.</p></article>
+          <article class="surface work-card"><div class="icon" aria-hidden="true">⌘</div><h3>디지털 도구 활용</h3><p>AI 및 웹 기술을 실험하고, 반복 업무를 줄이는 실용적인 결과물을 탐색합니다.</p></article>
+        </div>
+      </section>
+      <section class="section" id="career" aria-labelledby="career-heading">
+        <div class="section-heading"><div><div class="kicker">03 / EXPERIENCE</div><h2 id="career-heading">주요 경력 및 경험</h2></div></div>
+        <div class="career"><article class="career-item"><div class="time">현재 · 기간 입력 필요</div><div><h3>첨단교육팀</h3><p>담당 직무, 주요 프로젝트, 성과 등을 여기에 입력해 주세요.</p></div></article><article class="career-item"><div class="time">이전 경력 · 확인 필요</div><div><h3>주요 경력 / 프로젝트 추가</h3><p>과거 소속, 수행 업무, 프로젝트 경험 등을 구체적인 사실에 맞춰 작성해 주세요.</p></div></article></div>
+      </section>
+      <section class="section" id="projects" aria-labelledby="projects-heading">
+        <div class="section-heading"><div><div class="kicker">04 / SELECTED WORKS</div><h2 id="projects-heading">작업 결과물</h2></div><p class="section-desc">카드를 클릭하면 각각의 HTML 결과물 페이지로 이동합니다.</p></div>
+        <div class="project-grid">
+          <a class="project" href="1.html" aria-label="1번 기획문서 마크다운 결과물 열기"><span class="project-arrow" aria-hidden="true">↗</span><span class="project-number">01</span><span class="project-tag">DOCUMENTATION</span><h3>기획문서 MD</h3><p>기획서 구조 설계 및 문서 작성 결과물</p></a>
+          <a class="project" href="2.html" aria-label="2번 바이브코딩 결과물 열기"><span class="project-arrow" aria-hidden="true">↗</span><span class="project-number">02</span><span class="project-tag">VIBE CODING</span><h3>바이브코딩 결과물</h3><p>아이디어를 웹 도구로 구현한 작업</p></a>
+          <a class="project" href="3.html" aria-label="3번 슬라이드 결과물 열기"><span class="project-arrow" aria-hidden="true">↗</span><span class="project-number">03</span><span class="project-tag">PRESENTATION</span><h3>슬라이드</h3><p>정보를 시각적으로 구성한 발표자료</p></a>
+        </div>
+        <p class="note"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.5h.01"/></svg> 1.html, 2.html, 3.html 파일은 아직 포함되어 있지 않습니다. 추후 index.html과 같은 폴더에 저장하면 자동으로 연결됩니다.</p>
+      </section>
+    </div>
+  </main>
+  <footer class="footer"><div class="wrap footer-inner"><span>© <span id="year">2026</span> MY PORTFOLIO. Built with purpose.</span><a class="top-link" href="#top">맨 위로 ↑</a></div></footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
